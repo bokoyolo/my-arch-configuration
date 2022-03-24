@@ -20,6 +20,8 @@ echo "Installing pamac"
 {
   echo '[archlinuxcn]' >> /etc/pacman.conf;
   echo 'Server = https://repo.archlinuxcn.org/$arch' >> /etc/pacman.conf;
+  echo '[fcgu]' >> /etc/pacman.conf;#gnome unstable
+  echo 'Include = /etc/pacman.d/fcgu-mirrorlist' >> /etc/pacman.conf;
   pacman -Sy && sudo pacman -S --noconfirm archlinuxcn-keyring;
   pacman -Sy --noconfirm yay;
   yay -S --noconfirm pamac-all;
