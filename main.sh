@@ -20,6 +20,9 @@ echo "Installing pamac"
 {
   echo '[archlinuxcn]' >> /etc/pacman.conf;
   echo 'Server = https://repo.archlinuxcn.org/$arch' >> /etc/pacman.conf;
+  pacman-key --keyserver hkps://keys.openpgp.org --recv-keys 6E58E886A8E07538A2485FAED6A4F386B4881229;
+  pacman-key --lsign-key 6E58E886A8E07538A2485FAED6A4F386B4881229;
+  pacman -U https://vmi394248.contaboserver.net/fcgu/fcgu-mirrorlist-1-1-any.pkg.tar.zst
   echo '[fcgu]' >> /etc/pacman.conf;#gnome unstable
   echo 'Include = /etc/pacman.d/fcgu-mirrorlist' >> /etc/pacman.conf;
   pacman -Sy && sudo pacman -S --noconfirm archlinuxcn-keyring;
